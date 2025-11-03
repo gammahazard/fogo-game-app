@@ -16,16 +16,18 @@ export default ({ children }: { children: ReactNode }) => (
       <FogoSessionProvider
         network={Network.Testnet}
         
-        // --- THIS IS THE FIX ---
-        // We are setting the domain to your production domain.
-        // The old code set this to 'undefined' in production.
-        domain="https://fogo-app.vercel.app"
+        // --- THIS IS THE FULL FIX ---
+        // 1. Add the required sponsor and paymasterUrl from the docs
+        sponsor="8HnaXmgFJbvvJxSdjeNyWwMXZb85E35NM4XNg6rxuw3w"
+        paymasterUrl="https://sessions-example.fogo.io/paymaster"
+        
+        // 2. Set the domain to the ONE this test paymaster is
+        //    registered to accept, as shown in the example app.
+        domain="https://sessions-example.fogo.io"
         
         tokens={[NATIVE_MINT.toBase58(), "fUSDNGgHkZfwckbr5RLLvRbvqvRcTLdH9hcHJiq4jry"]}
         defaultRequestedLimits={{
           [NATIVE_MINT.toBase58()]: 1_500_000_000n,
-          // --- THIS IS THE CORRECTED LINE ---
-          // All the junk text has been removed.
           "fUSDNGgHkZfwckbr5RLLvRbvqvRcTLdH9hcHJiq4jry": 1_000_000_000n
         }}
         enableUnlimited
