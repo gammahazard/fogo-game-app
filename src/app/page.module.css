@@ -1,0 +1,63 @@
+/* * This container will now be centered in the <main> area,
+ * which already has 'flex-grow: 1' from globals.css.
+*/
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  gap: 2.5rem; /* Space between title and button/text */
+  
+  /* This ensures it takes up all the vertical space in <main> */
+  height: 100%; 
+}
+
+/* The "very big" title */
+.heroTitle {
+  font-size: 4.5rem; /* You can make this even bigger, e.g., 6rem */
+  font-weight: 800;
+  color: #FFC857; /* Fire yellow */
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* * A single, "nice styled" button class for
+ * "Launch App"
+*/
+.ctaButton {
+  background-color: #E85D04; /* Deep orange */
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem; /* Bigger font */
+  padding: 1rem 2rem;  /* Bigger padding */
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none; /* For the Link tag */
+}
+
+.ctaButton:hover {
+  background-color: #FF7F11; /* Brighter orange */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 20px rgba(232, 93, 4, 0.3); /* Orange glow */
+}
+
+.ctaButton:disabled {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- NEW STYLE FOR YOUR PROMPT --- */
+.signInPrompt {
+  font-size: 1.25rem;
+  color: #aaa;
+  font-weight: 500;
+  /* Match the padding of the button to keep spacing consistent */
+  padding: 1rem 2rem; 
+}

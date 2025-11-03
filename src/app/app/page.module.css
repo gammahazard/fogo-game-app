@@ -1,0 +1,30 @@
+/* Consistent container with our landing page */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Consistent title styling */
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FFC857; /* Fire yellow */
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #aaa;
+  margin-bottom: 3rem;
+}
+
+/* Responsive grid for the game cards */
+.gameGrid {
+  display: grid;
+  /* This creates 1 column on small screens, 2 on medium, 3 on large */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}

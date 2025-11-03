@@ -1,0 +1,36 @@
+html {
+  height: 100%; /* Make sure HTML fills the page */
+}
+
+body {
+  background-color: #18181B; 
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* --- THIS IS THE FIX --- */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make the body at least the full viewport height */
+}
+
+main {
+  padding: 1.5rem;
+
+  /* --- THIS IS THE MAGIC LINE --- */
+  flex-grow: 1; /* Tells main to GROW and fill all extra space */
+  
+  /* You can remove min-height: 80vh; now, flex-grow is better */
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #9D0208; 
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}

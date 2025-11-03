@@ -1,0 +1,25 @@
+.footer {
+  padding: 2rem 1.5rem;
+  color: #888;
+  border-top: 1px solid #2a2a2a;
+  
+  /* Make footer a flex container to center everything */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Adds space between copyright and "Powered by" */
+}
+
+.poweredBy {
+  /* This will align the text and logo horizontally */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between text and logo */
+  font-size: 0.9rem;
+}
+
+.logo {
+  /* This gives the logo a defined size */
+  border-radius: 50%; /* Makes it a circle, optional */
+  object-fit: cover;
+}
