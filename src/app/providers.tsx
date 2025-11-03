@@ -18,7 +18,6 @@ export function AppProviders({ children }: { children: ReactNode }) {
     <FogoSessionProvider
       network={Network.Testnet}
       sponsor={sponsorPubKey}
-      paymasterUrl="https://sessions-example.fogo.io/paymaster"
       domain="https://sessions-example.fogo.io"
       tokens={[NATIVE_MINT.toBase58(), "fUSDNGgHkZfwckbr5RLLvRbvqvRcTLdH9hcHJiq4jry"]}
       defaultRequestedLimits={{
