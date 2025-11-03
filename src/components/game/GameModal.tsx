@@ -1,17 +1,22 @@
 import { ReactNode } from 'react';
 import styles from './GameModal.module.css';
 
+// *** FIX: Changed props to accept a 'game' object, 
+// matching how it's used on the page. ***
 type GameModalProps = {
-  isOpen: boolean;
+  game: {
+    title: string;
+    description: string;
+  };
   onClose: () => void;
-  title: string;
   children: ReactNode;
 };
 
-export const GameModal = ({ isOpen, onClose, title, children }: GameModalProps) => {
-  if (!isOpen) {
-    return null;
-  }
+export const GameModal = ({ game, onClose, children }: GameModalProps) => {
+  
+  // *** FIX: Removed the 'isOpen' prop and check. ***
+  // The parent page (app/page.tsx) already handles this
+  // by conditionally rendering the component (using {selectedGame && ...})
 
   // Prevents closing modal when clicking inside content
   const onContentClick = (e: React.MouseEvent) => {
@@ -27,7 +32,8 @@ export const GameModal = ({ isOpen, onClose, title, children }: GameModalProps) 
         
         {/* Modal Header */}
         <div className={styles.modalHeader}>
-          <h2 className={styles.modalTitle}>{title}</h2>
+          {/* *** FIX: Get title from the 'game' object *** */}
+          <h2 className={styles.modalTitle}>{game.title}</h2>
           <button className={styles.closeButton} onClick={onClose}>
             &times;
           </button>
@@ -41,3 +47,4 @@ export const GameModal = ({ isOpen, onClose, title, children }: GameModalProps) 
     </div>
   );
 };
+

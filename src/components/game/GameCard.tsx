@@ -15,15 +15,18 @@ export const GameCard = ({ title, description, imageUrl, onClick }: GameCardProp
         <Image
           src={imageUrl}
           alt={title}
-          layout="fill"
+          // *** FIX: Use 'fill' prop (boolean) instead of 'layout' (string) ***
+          fill={true} 
           objectFit="cover"
           className={styles.cardImage}
         />
       </div>
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{title}</h3>
+        {/* This will now be populated correctly */}
         <p className={styles.cardDescription}>{description}</p>
       </div>
     </div>
   );
 };
+

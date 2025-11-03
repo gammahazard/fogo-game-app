@@ -8,10 +8,11 @@ import styles from "./page.module.css";
 
 // This is the data for your games
 // It now uses your /logo.jpg as requested
+// *** FIX: Added 'description' to each game object ***
 const games = [
-  { id: 'game1', title: 'Fogo Flapper', imageUrl: '/logo.jpg', description: 'Flap your way to victory.' },
-  { id: 'game2', title: 'Solana Stacker', imageUrl: '/logo.jpg', description: 'Stack blocks to the moon.' },
-  { id: 'game3', title: 'Session Surfer', imageUrl: '/logo.jpg', description: 'Surf the session waves.' },
+  { id: 'game1', title: 'Fogo Flapper', imageUrl: '/logo.jpg', description: 'Flap your way to victory in this fiery challenge.' },
+  { id: 'game2', title: 'Solana Stacker', imageUrl: '/logo.jpg', description: 'Stack blocks to the moon and build your tower.' },
+  { id: 'game3', title: 'Session Surfer', imageUrl: '/logo.jpg', description: 'Surf the session waves and dodge the obstacles.' },
 ];
 
 export default function App() {
@@ -39,12 +40,15 @@ export default function App() {
             key={game.id}
             title={game.title}
             imageUrl={game.imageUrl}
+            // *** FIX: Passing the 'description' prop ***
+            description={game.description} 
             onClick={() => setSelectedGame(game)}
           />
         ))}
       </div>
 
       {/* The Modal */}
+      {/* This logic is correct. It passes the 'game' object. */}
       {selectedGame && (
         <GameModal game={selectedGame} onClose={() => setSelectedGame(null)}>
           {/* This is where your actual game component would go */}

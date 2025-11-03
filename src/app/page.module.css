@@ -61,3 +61,12 @@
   /* Match the padding of the button to keep spacing consistent */
   padding: 1rem 2rem; 
 }
+/* Add this to src/app/page.module.css */
+.disabled {
+  background-color: #555 !important; /* Use !important to override hover */
+  color: #999;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !mportant;
+  pointer-events: none; /* This is the key property */
+}
