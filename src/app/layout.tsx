@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import { FogoSessionProvider, Network } from "@fogo/sessions-sdk-react";
 import { NATIVE_MINT } from "@solana/spl-token";
-import { Navbar } from "@/components/layout/Navbar"; // <-- Import
-import { Footer } from "@/components/layout/Footer"; // <-- Import
-// You might need a global CSS file for basic resets, but no Tailwind
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css"; 
 
 export const metadata = {
@@ -16,21 +15,29 @@ export default ({ children }: { children: ReactNode }) => (
     <body>
       <FogoSessionProvider
         network={Network.Testnet}
-        domain={process.env.NODE_ENV === "production" ? undefined : "https://sessions-example.fogo.io"}
+        
+        // --- THIS IS THE FIX ---
+        // We are setting the domain to your production domain.
+        // The old code set this to 'undefined' in production.
+        domain="https://fogo-app.vercel.app"
+        
         tokens={[NATIVE_MINT.toBase58(), "fUSDNGgHkZfwckbr5RLLvRbvqvRcTLdH9hcHJiq4jry"]}
         defaultRequestedLimits={{
           [NATIVE_MINT.toBase58()]: 1_500_000_000n,
+          // --- THIS IS THE CORRECTED LINE ---
+          // All the junk text has been removed.
           "fUSDNGgHkZfwckbr5RLLvRbvqvRcTLdH9hcHJiq4jry": 1_000_000_000n
         }}
         enableUnlimited
       >
-        <Navbar /> {/* <-- Use Navbar */}
+        <Navbar />
         <hr />
         <main>
           {children}
         </main>
-        <Footer /> {/* <-- Use Footer */}
+        <Footer />
       </FogoSessionProvider>
     </body>
   </html>
 );
+
