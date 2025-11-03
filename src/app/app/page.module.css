@@ -28,3 +28,16 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
+
+/* --- 5. New style for the "not signed in" message --- */
+.notSignedIn {
+  background-color: #2a2a2a;
+  padding: 3rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #aaa;
+  border: 1px solid #444;
+  margin-top: 2rem;
+}
+
