@@ -4,6 +4,12 @@ import { useState } from "react";
 import { useSession, isEstablished } from "@fogo/sessions-sdk-react";
 import { GameCard } from "@/components/game/GameCard";
 import { GameModal } from "@/components/game/GameModal";
+
+// <-- NEW: Import your 3 new components
+import { BalanceDisplay } from "@/components/trade/Balance";
+import { TradeModule } from "@/components/trade/TradeModule";
+import { SendFUSDModule } from "@/components/trade/SendFUSD";
+
 import styles from "./page.module.css";
 
 // This is the data for your games
@@ -34,6 +40,15 @@ export default function App() {
   return (
     <div className={styles.appContainer}>
       <h1 className={styles.title}>Choose Your Game</h1>
+
+      {/* <-- NEW: Add your dashboard section --> */}
+      <div className={styles.dashboardSection}>
+        <BalanceDisplay />
+        <div className={styles.tradeButtonsContainer}>
+     
+        </div>
+      </div>
+
       <div className={styles.gameGrid}>
         {games.map((game) => (
           <GameCard
@@ -63,4 +78,3 @@ export default function App() {
     </div>
   );
 }
-
