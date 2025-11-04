@@ -1,18 +1,21 @@
-"use client"; 
+"use client"; // This page must be client-side to check session and manage modals
 
 import { useState } from "react";
 import { useSession, isEstablished } from "@fogo/sessions-sdk-react";
 
+// 1. Import all your components
 import { AppCard } from "@/components/ecosystem-apps/AppCard";
 import { AppModal } from "@/components/ecosystem-apps/AppModal";
 import { BalanceDisplay } from "@/components/trade/Balance";
-// ... other imports
-
-// 1. Import your new stats component
 import { AmbientStatsDisplay } from "@/components/ecosystem-apps/AmbientStatsDisplay";
 
+// === 2. IMPORT THE NEW COMPONENT ===
+import { WalletTransactionViewer } from "@/components/ecosystem-apps/WalletTransactionViewer"; 
+
+// 3. Import your CSS
 import styles from "./page.module.css";
 
+// 4. Define your app data
 const apps = [
   { 
     id: 'ambient', 
@@ -25,6 +28,7 @@ const apps = [
 export default function App() {
   const sessionState = useSession();
   const established = isEstablished(sessionState);
+
   const [selectedApp, setSelectedApp] = useState<any>(null);
 
   if (!established) {
@@ -57,20 +61,26 @@ export default function App() {
         ))}
       </div>
 
-      {/* 2. Render the new component inside the modal */}
+      {/* Render the AppModal */}
       {selectedApp && (
         <AppModal app={selectedApp} onClose={() => setSelectedApp(null)}>
-          {/* This placeholder div is replaced.
-            We only render the stats component if the selected app is 'ambient'
-          */}
+          
           {selectedApp.id === 'ambient' ? (
-            <AmbientStatsDisplay />
+            <div>
+              {/* Component for CURRENT position stats */}
+              <AmbientStatsDisplay />
+              
+              {/* === 3. USE THE NEW COMPONENT === */}
+              {/* This replaces AmbientHistory */}
+              <WalletTransactionViewer />
+            </div>
           ) : (
             <div>
               <p>{selectedApp.description}</p>
               <p>Stats for this app are not yet available.</p>
             </div>
           )}
+          
         </AppModal>
       )}
     </div>
