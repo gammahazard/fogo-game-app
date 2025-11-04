@@ -72,7 +72,7 @@ export const BalanceDisplay = () => {
     <div className={styles.balanceContainer}>
       <h3 className={styles.balanceTitle}>Your Balances</h3>
       <div className={styles.balanceRow}>
-        <span className={styles.tokenName}>FOGO:</span>
+        <span className={styles.tokenName}>FOGO (native):</span>
         <span className={styles.tokenAmount}>{foboDisplay}</span>
       </div>
       <div className={styles.balanceRow}>
