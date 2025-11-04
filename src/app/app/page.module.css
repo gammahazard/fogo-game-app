@@ -21,14 +21,27 @@
   margin-bottom: 3rem;
 }
 
-/* Responsive grid for the game cards */
-.gameGrid {
+/* In src/app/app/page.module.css */
+/* ... keep all your other styles like .appContainer, .title, etc. */
+
+/* REPLACE .gameGrid with .appGrid */
+.appGrid {
   display: grid;
-  /* This creates 1 column on small screens, 2 on medium, 3 on large */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 32px;
 }
 
+.signInMessage {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 80px 20px;
+  color: #aaa;
+}
+
+/* ... keep all your other styles like .dashboardSection, etc. */
 /* --- 5. New style for the "not signed in" message --- */
 .notSignedIn {
   background-color: #2a2a2a;
@@ -40,4 +53,5 @@
   border: 1px solid #444;
   margin-top: 2rem;
 }
+
 

@@ -1,0 +1,51 @@
+.appCard {
+  background: #2a2a2a; /* Dark card background */
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  border: 1px solid #444;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.appCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.imageContainer {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.appImage {
+  /* SVG logos can sometimes be tricky; this helps */
+  object-fit: contain;
+}
+
+.appTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.viewButton {
+  background-color: #007bff; /* A bright "View" button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.viewButton:hover {
+  background-color: #0056b3;
+}

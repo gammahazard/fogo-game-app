@@ -12,6 +12,7 @@
   "packageManager": "pnpm@10.12.4",
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.1",
+    "@crocswap-libs/ambient-ember": "^0.1.59",
     "@fogo/sessions-idls": "^0.0.7",
     "@fogo/sessions-sdk": "^0.0.18",
     "@fogo/sessions-sdk-react": "^0.0.28",
